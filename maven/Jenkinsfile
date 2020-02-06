@@ -6,7 +6,7 @@ node ('sub'){
         sh label: '', script: 'mvn package'
     }
     stage('c Deploy'){
-        sh label: '', script: 'scp /home/ubuntu/workspace/workspace/"scripted pipe"/webapp/target/webapp.war ubuntu@10.0.1.89:/opt/tomcat8/webapps/testing.war'
+        sh label: '', script: 'scp /home/ubuntu/workspace/workspace/"scripted pipe"/webapp/target/webapp.war ubuntu@10.0.1.89:/var/lib/tomcat9/webapps/testing1.war'
     }
     stage('c Test'){
         git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
