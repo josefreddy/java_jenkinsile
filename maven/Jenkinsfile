@@ -1,0 +1,19 @@
+node ('sub'){
+    stage('c Download'){
+        git 'https://github.com/intelliqittrainings/maven.git'
+    }
+    stage('c Build'){
+        sh label: '', script: 'mvn package'
+    }
+    stage('c Deploy'){
+        sh label: '', script: 'scp /home/ubuntu/workspace/workspace/"scripted pipe"/webapp/target/webapp.war ubuntu@10.0.1.89:/opt/tomcat8/webapps/testing.war'
+    }
+    stage('c Test'){
+        git 'https://github.com/intelliqittrainings/FunctionalTesting.git'
+        sh label: '', script: 'java -jar testing.jar'
+    }
+    stage('c delivary'){
+        
+        sh label: '', script: 'echo "success"'
+    }
+}
