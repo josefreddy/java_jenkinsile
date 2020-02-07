@@ -2,7 +2,7 @@ node ('sub'){
     stage('c Download'){
         git 'https://github.com/intelliqittrainings/maven.git'
     }
-    stage('c Build'){
+    stage('c Building'){
         sh label: '', script: 'mvn package'
     }
     stage('c Deploying'){
