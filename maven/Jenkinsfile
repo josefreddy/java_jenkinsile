@@ -5,7 +5,7 @@ node ('sub'){
     stage('c Build'){
         sh label: '', script: 'mvn package'
     }
-    stage('c Deploy'){
+    stage('c Deploying'){
         sh label: '', script: 'scp /home/ubuntu/workspace/workspace/"scripted pipe"/webapp/target/webapp.war ubuntu@10.0.1.89:/var/lib/tomcat9/webapps/testing1.war'
     }
     stage('c Testing'){
