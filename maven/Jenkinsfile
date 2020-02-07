@@ -15,5 +15,10 @@ node ('sub'){
     stage('c delivary'){
         
         sh label: '', script: 'echo "success of automation"'
+       
     }
+    stage('c ddelivery'){
+        sshagent(['ssh-tomct']) {
+    sh 'scp -o StrictHostKeyChecking=no /home/ubuntu/workspace/workspace/"scripted pipe"/webapp/target/webapp.war ubuntu@10.0.1.16:/var/lib/tomcat9/webapps/subbu'
+}
 }
